@@ -1,9 +1,17 @@
-var express = require('express');
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+const controller = require("../controllers/users.js");
+const validateUserMiddleware = require('./../middlewares/validate-user.middleware.js');
+const validateIdMiddleware = require('./../middlewares/validate-id.middleware.js');
+const ensureAuthenticated = require('./../middlewares/ensure-authenticated.middleware.js');
+
+
+router
+    .get("/",ensureAuthenticated, controller.index)
+    .get("/:_id",ensureAuthenticated, validateIdMiddleware.validate, controller.id)
+    .post("/",ensureAuthenticated, validateUserMiddleware.validate, controller.create)
+    .put("/:_id",ensureAuthenticated, validateIdMiddleware.validate,  validateUserMiddleware.validate, controller.update)
+    .delete("/:_id",ensureAuthenticated, validateIdMiddleware.validate, controller.delete);
 
 module.exports = router;

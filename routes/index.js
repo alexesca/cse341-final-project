@@ -11,6 +11,7 @@ router.use("/sessions", require("./sessions.js"));
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  // #swagger.tags = ['Index']
   res.render('index', { title: 'Express' });
 });
 

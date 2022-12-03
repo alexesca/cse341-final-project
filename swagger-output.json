@@ -1,8 +1,8 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "My API",
-    "description": "Description",
+    "title": "My Developer Productivity API",
+    "description": "This is the best productivity app.",
     "version": "1.0.0"
   },
   "host": "localhost:3000",
@@ -10,15 +10,12 @@
   "schemes": [
     "http"
   ],
-  "securityDefinitions": {
-    "oauth": {
-      "type": "oauth2",
-      "authorizationUrl": "https://scripts-io.onrender.com/login/github"
-    }
-  },
   "paths": {
     "/": {
       "get": {
+        "tags": [
+          "Index"
+        ],
         "description": "",
         "parameters": [],
         "responses": {}
@@ -152,31 +149,31 @@
     "/tasks/": {
       "get": {
         "tags": [
-          "Users"
+          "Tasks"
         ],
-        "summary": "Find all user.",
-        "description": "This endpoint returns a list with all the user in the database.",
+        "summary": "Find all tasks.",
+        "description": "This endpoint returns a list with all the tasks in the database.",
         "parameters": [],
         "responses": {
           "200": {
             "description": "User successfully obtained.",
             "schema": {
-              "$ref": "#/definitions/Users"
+              "$ref": "#/definitions/Tasks"
             }
           }
         }
       },
       "post": {
         "tags": [
-          "Users"
+          "Tasks"
         ],
-        "summary": "Create script and return ID. All fields are required.",
-        "description": "This endpoint   a script and returns the newly   script ID.",
+        "summary": "Create task and return ID. All fields are required.",
+        "description": "This endpoint   a task and returns the newly   task ID.",
         "parameters": [
           {
-            "name": "Users",
+            "name": "Tasks",
             "in": "body",
-            "description": "Model of the new script.",
+            "description": "Model of the new task.",
             "schema": {
               "$ref": "#/definitions/User"
             }
@@ -199,17 +196,17 @@
     "/tasks/{_id}": {
       "get": {
         "tags": [
-          "Users"
+          "Tasks"
         ],
-        "summary": "Find script by ID.",
-        "description": "This endpoint returns a script found with the provided ID",
+        "summary": "Find task by ID.",
+        "description": "This endpoint returns a task found with the provided ID",
         "parameters": [
           {
             "name": "_id",
             "in": "path",
             "required": true,
             "type": "string",
-            "description": "Id of the desired script.",
+            "description": "Id of the desired task.",
             "schema": {
               "type": "string",
               "example": "636c889a2a02ef8e6e9f50e6"
@@ -227,10 +224,10 @@
       },
       "put": {
         "tags": [
-          "Users"
+          "Tasks"
         ],
-        "summary": "Update script.",
-        "description": "This endpoint   a script. All fields are required for a successful update.",
+        "summary": "Update task.",
+        "description": "This endpoint   a task. All fields are required for a successful update.",
         "parameters": [
           {
             "name": "_id",
@@ -239,9 +236,9 @@
             "type": "string"
           },
           {
-            "name": "Users",
+            "name": "Tasks",
             "in": "body",
-            "description": "Model of the new script.",
+            "description": "Model of the new task.",
             "schema": {
               "$ref": "#/definitions/User"
             }
@@ -255,10 +252,10 @@
       },
       "delete": {
         "tags": [
-          "Users"
+          "Tasks"
         ],
-        "summary": "Delete script.",
-        "description": "This endpoint   a script if a valid ID is passed.",
+        "summary": "Delete task.",
+        "description": "This endpoint   a task if a valid ID is passed.",
         "parameters": [
           {
             "name": "_id",
@@ -277,31 +274,31 @@
     "/breaks/": {
       "get": {
         "tags": [
-          "Users"
+          "Breaks"
         ],
-        "summary": "Find all user.",
-        "description": "This endpoint returns a list with all the user in the database.",
+        "summary": "Find all breaks.",
+        "description": "This endpoint returns a list with all the breaks in the database.",
         "parameters": [],
         "responses": {
           "200": {
             "description": "User successfully obtained.",
             "schema": {
-              "$ref": "#/definitions/Users"
+              "$ref": "#/definitions/Breaks"
             }
           }
         }
       },
       "post": {
         "tags": [
-          "Users"
+          "Breaks"
         ],
-        "summary": "Create script and return ID. All fields are required.",
-        "description": "This endpoint   a script and returns the newly   script ID.",
+        "summary": "Create nyBreak and return ID. All fields are required.",
+        "description": "This endpoint   a nyBreak and returns the newly   nyBreak ID.",
         "parameters": [
           {
-            "name": "Users",
+            "name": "Breaks",
             "in": "body",
-            "description": "Model of the new script.",
+            "description": "Model of the new nyBreak.",
             "schema": {
               "$ref": "#/definitions/User"
             }
@@ -324,17 +321,17 @@
     "/breaks/{_id}": {
       "get": {
         "tags": [
-          "Users"
+          "Breaks"
         ],
-        "summary": "Find script by ID.",
-        "description": "This endpoint returns a script found with the provided ID",
+        "summary": "Find nyBreak by ID.",
+        "description": "This endpoint returns a nyBreak found with the provided ID",
         "parameters": [
           {
             "name": "_id",
             "in": "path",
             "required": true,
             "type": "string",
-            "description": "Id of the desired script.",
+            "description": "Id of the desired nyBreak.",
             "schema": {
               "type": "string",
               "example": "636c889a2a02ef8e6e9f50e6"
@@ -352,10 +349,10 @@
       },
       "put": {
         "tags": [
-          "Users"
+          "Breaks"
         ],
-        "summary": "Update script.",
-        "description": "This endpoint   a script. All fields are required for a successful update.",
+        "summary": "Update nyBreak.",
+        "description": "This endpoint   a nyBreak. All fields are required for a successful update.",
         "parameters": [
           {
             "name": "_id",
@@ -364,9 +361,9 @@
             "type": "string"
           },
           {
-            "name": "Users",
+            "name": "Breaks",
             "in": "body",
-            "description": "Model of the new script.",
+            "description": "Model of the new nyBreak.",
             "schema": {
               "$ref": "#/definitions/User"
             }
@@ -380,10 +377,10 @@
       },
       "delete": {
         "tags": [
-          "Users"
+          "Breaks"
         ],
-        "summary": "Delete script.",
-        "description": "This endpoint   a script if a valid ID is passed.",
+        "summary": "Delete nyBreak.",
+        "description": "This endpoint   a nyBreak if a valid ID is passed.",
         "parameters": [
           {
             "name": "_id",
@@ -402,31 +399,31 @@
     "/sessions/": {
       "get": {
         "tags": [
-          "Users"
+          "Sessions"
         ],
-        "summary": "Find all user.",
-        "description": "This endpoint returns a list with all the user in the database.",
+        "summary": "Find all sessions.",
+        "description": "This endpoint returns a list with all the sessions in the database.",
         "parameters": [],
         "responses": {
           "200": {
             "description": "User successfully obtained.",
             "schema": {
-              "$ref": "#/definitions/Users"
+              "$ref": "#/definitions/Sessions"
             }
           }
         }
       },
       "post": {
         "tags": [
-          "Users"
+          "Sessions"
         ],
-        "summary": "Create script and return ID. All fields are required.",
-        "description": "This endpoint   a script and returns the newly   script ID.",
+        "summary": "Create session and return ID. All fields are required.",
+        "description": "This endpoint   a session and returns the newly   session ID.",
         "parameters": [
           {
-            "name": "Users",
+            "name": "Sessions",
             "in": "body",
-            "description": "Model of the new script.",
+            "description": "Model of the new session.",
             "schema": {
               "$ref": "#/definitions/User"
             }
@@ -449,17 +446,17 @@
     "/sessions/{_id}": {
       "get": {
         "tags": [
-          "Users"
+          "Sessions"
         ],
-        "summary": "Find script by ID.",
-        "description": "This endpoint returns a script found with the provided ID",
+        "summary": "Find session by ID.",
+        "description": "This endpoint returns a session found with the provided ID",
         "parameters": [
           {
             "name": "_id",
             "in": "path",
             "required": true,
             "type": "string",
-            "description": "Id of the desired script.",
+            "description": "Id of the desired session.",
             "schema": {
               "type": "string",
               "example": "636c889a2a02ef8e6e9f50e6"
@@ -477,10 +474,10 @@
       },
       "put": {
         "tags": [
-          "Users"
+          "Sessions"
         ],
-        "summary": "Update script.",
-        "description": "This endpoint   a script. All fields are required for a successful update.",
+        "summary": "Update session.",
+        "description": "This endpoint   a session. All fields are required for a successful update.",
         "parameters": [
           {
             "name": "_id",
@@ -489,9 +486,9 @@
             "type": "string"
           },
           {
-            "name": "Users",
+            "name": "Sessions",
             "in": "body",
-            "description": "Model of the new script.",
+            "description": "Model of the new session.",
             "schema": {
               "$ref": "#/definitions/User"
             }
@@ -505,10 +502,10 @@
       },
       "delete": {
         "tags": [
-          "Users"
+          "Sessions"
         ],
-        "summary": "Delete script.",
-        "description": "This endpoint   a script if a valid ID is passed.",
+        "summary": "Delete session.",
+        "description": "This endpoint   a session if a valid ID is passed.",
         "parameters": [
           {
             "name": "_id",
@@ -538,10 +535,6 @@
           "name": {
             "type": "string",
             "example": "Miguel"
-          },
-          "phoneNumber": {
-            "type": "string",
-            "example": "208-109-8899"
           }
         }
       }
@@ -556,14 +549,10 @@
         "name": {
           "type": "string",
           "example": "Miguel"
-        },
-        "phoneNumber": {
-          "type": "string",
-          "example": "208-109-8899"
         }
       }
     },
-    "Technologies": {
+    "Tasks": {
       "type": "array",
       "items": {
         "type": "object",
@@ -572,39 +561,112 @@
             "type": "string",
             "example": "6375c691fdc424f3222d320f"
           },
+          "_userId": {
+            "type": "string",
+            "example": "6375c691fdc424f3222d320g"
+          },
           "name": {
             "type": "string",
-            "example": "Angular"
+            "example": "Style application menu"
           },
           "description": {
             "type": "string",
-            "example": "Front-framewor developed by google."
+            "example": "Add styles to the application menu to match overall app theme."
           },
-          "logo": {
+          "createdAt": {
             "type": "string",
-            "example": "angular.jpg"
+            "example": "2022-09-16T06:00:00.000+0000"
+          },
+          "dueDate": {
+            "type": "string",
+            "example": "2022-10-16T06:00:00.000+0000"
           }
         }
       }
     },
-    "Technology": {
+    "Task": {
       "type": "object",
       "properties": {
+        "_id": {
+          "type": "string",
+          "example": "6375c691fdc424f3222d320f"
+        },
+        "_userId": {
+          "type": "string",
+          "example": "6375c691fdc424f3222d320g"
+        },
         "name": {
           "type": "string",
-          "example": "Angular"
+          "example": "Style application menu"
         },
         "description": {
           "type": "string",
-          "example": "Front-framewor developed by google."
+          "example": "Add styles to the application menu to match overall app theme."
         },
-        "logo": {
+        "createdAt": {
           "type": "string",
-          "example": "angular.jpg"
+          "example": "2022-09-16T06:00:00.000+0000"
+        },
+        "dueDate": {
+          "type": "string",
+          "example": "2022-10-16T06:00:00.000+0000"
         }
       }
     },
-    "Scripts": {
+    "Breaks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "example": "6375c691fdc424f3222d320f"
+          },
+          "_userId": {
+            "type": "string",
+            "example": "6375c691fdc424f3222d320g"
+          },
+          "name": {
+            "type": "string",
+            "example": "Go for a 5 min walk"
+          },
+          "description": {
+            "type": "string",
+            "example": "Go for a 5 min walk to let you back rest."
+          },
+          "createdAt": {
+            "type": "string",
+            "example": "2022-09-16T06:00:00.000+0000"
+          }
+        }
+      }
+    },
+    "Break": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string",
+          "example": "6375c691fdc424f3222d320f"
+        },
+        "_userId": {
+          "type": "string",
+          "example": "6375c691fdc424f3222d320g"
+        },
+        "name": {
+          "type": "string",
+          "example": "Go for a 5 min walk"
+        },
+        "description": {
+          "type": "string",
+          "example": "Go for a 5 min walk to let you back rest."
+        },
+        "createdAt": {
+          "type": "string",
+          "example": "2022-09-16T06:00:00.000+0000"
+        }
+      }
+    },
+    "Sessions": {
       "type": "array",
       "items": {
         "type": "object",
@@ -613,55 +675,91 @@
             "type": "string",
             "example": "6375c50e3b3e912a359a2e35"
           },
+          "breakIds": {
+            "type": "array",
+            "example": [
+              "6375c50e3b3e912a359a2e35"
+            ],
+            "items": {
+              "type": "string"
+            }
+          },
+          "taskIds": {
+            "type": "array",
+            "example": [
+              "6375c50e3b3e912a359a2e35"
+            ],
+            "items": {
+              "type": "string"
+            }
+          },
           "name": {
             "type": "string",
-            "example": "Create ng lib"
+            "example": "Monday morning session"
           },
           "description": {
             "type": "string",
-            "example": "Creates an angular lib."
+            "example": "Starting your day session"
           },
-          "script": {
-            "type": "string",
-            "example": "nx g @nrwl/angular:lib [name] --directory=scheduler/"
-          },
-          "date": {
+          "startDate": {
             "type": "string",
             "example": "2022-09-16T06:00:00.000+0000"
           },
-          "shortName": {
+          "endDate": {
             "type": "string",
-            "example": "ng lib"
+            "example": "2022-09-16T07:00:00.000+0000"
+          },
+          "status": {
+            "type": "string",
+            "example": "Completed"
           }
         }
       }
     },
-    "Script": {
+    "Session": {
       "type": "object",
       "properties": {
         "_userId": {
           "type": "string",
           "example": "6375c50e3b3e912a359a2e35"
         },
+        "breakIds": {
+          "type": "array",
+          "example": [
+            "6375c50e3b3e912a359a2e35"
+          ],
+          "items": {
+            "type": "string"
+          }
+        },
+        "taskIds": {
+          "type": "array",
+          "example": [
+            "6375c50e3b3e912a359a2e35"
+          ],
+          "items": {
+            "type": "string"
+          }
+        },
         "name": {
           "type": "string",
-          "example": "Create ng lib"
+          "example": "Monday morning session"
         },
         "description": {
           "type": "string",
-          "example": "Creates an angular lib."
+          "example": "Starting your day session"
         },
-        "script": {
-          "type": "string",
-          "example": "nx g @nrwl/angular:lib [name] --directory=scheduler/"
-        },
-        "date": {
+        "startDate": {
           "type": "string",
           "example": "2022-09-16T06:00:00.000+0000"
         },
-        "shortName": {
+        "endDate": {
           "type": "string",
-          "example": "ng lib"
+          "example": "2022-09-16T07:00:00.000+0000"
+        },
+        "status": {
+          "type": "string",
+          "example": "Completed"
         }
       }
     }

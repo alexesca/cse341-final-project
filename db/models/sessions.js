@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const TaskSchema = new Schema({
+const SessionSchema = new Schema({
     name: String,
     taskIds: [Schema.Types.ObjectId],
     _userId: Schema.Types.ObjectId,
@@ -14,5 +14,5 @@ const TaskSchema = new Schema({
 
 });
 
-const TaskModel = mongoose.model('Task', TaskSchema);
-module.exports = TaskModel;
+const SessionModel = mongoose.model('Session', SessionSchema);
+module.exports = SessionModel;

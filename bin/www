@@ -4,6 +4,10 @@
  * Module dependencies.
  */
 
+require('dotenv').config()
+
+require("./../db/connection.js");
+
 var app = require('../app');
 var debug = require('debug')('cse341-final-project:server');
 var http = require('http');

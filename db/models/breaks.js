@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const TaskSchema = new Schema({
+const BreakSchema = new Schema({
     name: String,
     description: String,
     _userId: String,
@@ -10,5 +10,5 @@ const TaskSchema = new Schema({
     dueDate: Date,
 });
 
-const TaskModel = mongoose.model('Task', TaskSchema);
-module.exports = TaskModel;
+const BreakModel = mongoose.model('Break', BreakSchema);
+module.exports = BreakModel;

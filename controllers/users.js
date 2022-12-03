@@ -8,8 +8,12 @@ exports.index = async (req, res) => {
         description: 'User successfully obtained.',
         schema: { $ref: '#/definitions/Users' }
 } */
-    const user = await Users.find()
-    res.send(user)
+    try {
+        const user = await Users.find()
+        res.send(user);
+    } catch (e) {
+        throw new Error("There was an error finding all the users.");
+    }
 };
 
 exports.id = async (req, res, next) => {
@@ -49,8 +53,8 @@ exports.create = async (req, res) => {
     description: 'User successfully created.',
     schema: "Newly created User ID"
 } */
-    const script = await Users.create(req.body);
-    res.status(201).send(script._id);
+    const user = await Users.create(req.body);
+    res.status(201).send(user._id);
 };
 
 exports.update = async (req, res) => {

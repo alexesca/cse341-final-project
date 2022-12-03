@@ -1,4 +1,4 @@
-const Breaks = require("./../db/models/users") //
+const Breaks = require("./../db/models/breaks.js") //
 
 exports.index = async (req, res) => {
     // #swagger.tags = ['Breaks']

@@ -1,4 +1,4 @@
-const Sessions = require("./../db/models/users") //
+const Sessions = require("./../db/models/sessions.js") //
 
 exports.index = async (req, res) => {
     // #swagger.tags = ['Sessions']

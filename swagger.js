@@ -5,11 +5,11 @@ const doc = {
         title: 'My Developer Productivity API',
         description: 'This is the best productivity app.',
     },
-    host: "localhost:3000",
-    // host: "scripts-io.onrender.com",
+    // host: "localhost:3000",
+    host: "https://cse341-final-project-tug6.onrender.com",
     swaggerUIPath: '/api-docs',
-    schemes: ['http'],
-    // schemes: ['https'],
+    // schemes: ['http'],
+    schemes: ['https'],
     definitions: {
         Users: [{
             "email" : "m@gmail.com",

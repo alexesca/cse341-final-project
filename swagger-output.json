@@ -148,6 +148,381 @@
           }
         }
       }
+    },
+    "/tasks/": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Find all user.",
+        "description": "This endpoint returns a list with all the user in the database.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "User successfully obtained.",
+            "schema": {
+              "$ref": "#/definitions/Users"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Create script and return ID. All fields are required.",
+        "description": "This endpoint   a script and returns the newly   script ID.",
+        "parameters": [
+          {
+            "name": "Users",
+            "in": "body",
+            "description": "Model of the new script.",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "User successfully  .",
+            "schema": {
+              "type": "string",
+              "example": "Newly created User ID",
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tasks/{_id}": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Find script by ID.",
+        "description": "This endpoint returns a script found with the provided ID",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Id of the desired script.",
+            "schema": {
+              "type": "string",
+              "example": "636c889a2a02ef8e6e9f50e6"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User successfully obtained.",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Update script.",
+        "description": "This endpoint   a script. All fields are required for a successful update.",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Users",
+            "in": "body",
+            "description": "Model of the new script.",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Delete script.",
+        "description": "This endpoint   a script if a valid ID is passed.",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/breaks/": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Find all user.",
+        "description": "This endpoint returns a list with all the user in the database.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "User successfully obtained.",
+            "schema": {
+              "$ref": "#/definitions/Users"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Create script and return ID. All fields are required.",
+        "description": "This endpoint   a script and returns the newly   script ID.",
+        "parameters": [
+          {
+            "name": "Users",
+            "in": "body",
+            "description": "Model of the new script.",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "User successfully  .",
+            "schema": {
+              "type": "string",
+              "example": "Newly created User ID",
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/breaks/{_id}": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Find script by ID.",
+        "description": "This endpoint returns a script found with the provided ID",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Id of the desired script.",
+            "schema": {
+              "type": "string",
+              "example": "636c889a2a02ef8e6e9f50e6"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User successfully obtained.",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Update script.",
+        "description": "This endpoint   a script. All fields are required for a successful update.",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Users",
+            "in": "body",
+            "description": "Model of the new script.",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Delete script.",
+        "description": "This endpoint   a script if a valid ID is passed.",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/sessions/": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Find all user.",
+        "description": "This endpoint returns a list with all the user in the database.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "User successfully obtained.",
+            "schema": {
+              "$ref": "#/definitions/Users"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Create script and return ID. All fields are required.",
+        "description": "This endpoint   a script and returns the newly   script ID.",
+        "parameters": [
+          {
+            "name": "Users",
+            "in": "body",
+            "description": "Model of the new script.",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "User successfully  .",
+            "schema": {
+              "type": "string",
+              "example": "Newly created User ID",
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sessions/{_id}": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Find script by ID.",
+        "description": "This endpoint returns a script found with the provided ID",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Id of the desired script.",
+            "schema": {
+              "type": "string",
+              "example": "636c889a2a02ef8e6e9f50e6"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User successfully obtained.",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Update script.",
+        "description": "This endpoint   a script. All fields are required for a successful update.",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Users",
+            "in": "body",
+            "description": "Model of the new script.",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Delete script.",
+        "description": "This endpoint   a script if a valid ID is passed.",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "definitions": {

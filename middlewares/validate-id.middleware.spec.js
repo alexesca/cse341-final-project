@@ -31,4 +31,15 @@ function validateIdSpecs() {
         }
         middleware.validate(req, res, next)
     });
+
+    it('should reject missing ID', function () {
+        try {
+            const req = {};
+            const res = {};
+            const next = () => null;
+            middleware.validate(req, res, next);
+        } catch (e) {
+            expect(e).toBeDefined();
+        }
+    });
 }

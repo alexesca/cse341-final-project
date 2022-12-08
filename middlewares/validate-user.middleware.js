@@ -5,7 +5,7 @@ exports.validate = (req, res, next) => {
     const email = get(body, 'email');
     const name = get(body, 'name');
 
-    if(!email || !name) next("All fields are required.");
+    if(!email || !name) return next("All fields are required.");
     next();
 
 }

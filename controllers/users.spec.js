@@ -9,7 +9,7 @@ describe('User Model Specs', () => {
 });
 
 function findUsersSpecs() {
-    it('should return the doc with find', async (done) => {
+    it('should return the doc with find',  (done) => {
         try {
             let user;
             const req = {};
@@ -24,10 +24,14 @@ function findUsersSpecs() {
 
             mockingoose(User).toReturn(_doc, 'find');
 
-            await Controller.index(req, res);
-
-            expect(user).toEqual(_doc)
-            done()
+            Controller.index(req, res)
+                .then(() => {
+                    expect(user).toEqual(_doc);
+                    done()
+                })
+                .catch(e => {
+                    throw e
+                });
         } catch (e) {
             done.fail(e);
         }

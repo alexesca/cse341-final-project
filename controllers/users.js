@@ -10,6 +10,8 @@ exports.index = async (req, res) => {
 } */
     try {
         const user = await Users.find()
+            .lean()
+            .then(doc => JSON.parse(JSON.stringify(doc)))
         res.send(user);
     } catch (e) {
         throw new Error("There was an error finding all the users.");

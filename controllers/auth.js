@@ -12,11 +12,17 @@ exports.create = async (req, res) => {
     /* #swagger.responses[201] = {
     description: 'User successfully created.',
     schema: "Newly created User ID"
-} */
+    } */
     var options = { method: 'POST',
-        url: 'https://byui-cse341-final-project.us.auth0.com/oauth/token',
+        url: process.env.AUTH_URL,
         headers: { 'content-type': 'application/json' },
-        body: '{"client_id":"wvgNv0AyspMzVapB5gfZoiuj0YUjWg19","client_secret":"LMgZP9iyHYw03MH9CxKZV4fBoDQ-qk4Y_vQNSmiglf89ktMgfgNG4N8ML5HusJtZ","audience":"http://localhost:3000/api-docs/","grant_type":"client_credentials"}' };
+        body: {
+        "client_id": process.env.AUTH_CLIENT_ID,
+            "client_secret": process.env.AUTH_CLIENT_SECRET,
+            "audience": process.env.AUTH_AUDIENCE,
+            "grant_type":"client_credentials"
+    }
+    };
 
     request(options, function (error, response, body) {
         if (error) throw new Error(error);

@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const swaggerUi = require('swagger-ui-express');
 var cors = require('cors');
-var jwt = require('express-jwt');
+const { expressjwt } = require("express-jwt")
 var jwks = require('jwks-rsa');
 
 var indexRouter = require('./routes/index');
@@ -14,7 +14,7 @@ const swaggerDocument = require('./swagger-output.json');
 
 var app = express();
 
-var jwtCheck = jwt({
+var jwtCheck = expressjwt({
   secret: jwks.expressJwtSecret({
     cache: true,
     rateLimit: true,

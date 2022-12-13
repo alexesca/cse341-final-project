@@ -1,50 +1,8 @@
-const middleware = require('./validate-user.middleware.js');
+const middleware = require('./validate-break.middleware.js');
 
-describe('Validate User Middleware', () => {
-    describe('Validate User specs', validateUserSpecs);
+describe('Validate Middleware', () => {
     describe('Validate Breaks specs', validateBreaksSpecs);
 })
-
-
-function validateUserSpecs() {
-    it('should accept valid user', function () {
-        const req = {
-            body: {
-                email: 'a@gmail.com',
-                name: 'Alexander Escamilla'
-            }
-        };
-        const res = {};
-        const next = (e) => {
-            expect(e).toBeUndefined();
-        }
-        middleware.validate(req, res, next)
-    });
-
-    it('should reject invalid user', function () {
-        const req = {
-            body: {
-                name: 'Alexander Escamilla'
-            }
-        };
-        const res = {};
-        const next = (e) => {
-            expect(e).toBe("All fields are required.");
-        }
-        middleware.validate(req, res, next)
-    });
-
-    it('should reject missing user', function () {
-        try {
-            const req = {};
-            const res = {};
-            const next = () => null;
-            middleware.validate(req, res, next);
-        } catch (e) {
-            expect(e).toBeDefined();
-        }
-    });
-}
 
 
 function validateBreaksSpecs() {
@@ -63,7 +21,7 @@ function validateBreaksSpecs() {
         const next = (e) => {
             expect(e).toBeUndefined();
         }
-        middleware.validateBreak(req, res, next)
+        middleware.validate(req, res, next)
     });
 
     it('should reject invalid break', function () {
@@ -80,7 +38,7 @@ function validateBreaksSpecs() {
         const next = (e) => {
             expect(e).toBe("All fields are required.");
         }
-        middleware.validateBreak(req, res, next)
+        middleware.validate(req, res, next)
     });
 
     it('should reject missing break', function () {
@@ -88,7 +46,7 @@ function validateBreaksSpecs() {
             const req = {};
             const res = {};
             const next = () => null;
-            middleware.validateBreak(req, res, next);
+            middleware.validate(req, res, next);
         } catch (e) {
             expect(e).toBeDefined();
         }

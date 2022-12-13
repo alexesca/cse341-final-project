@@ -1,4 +1,5 @@
-const Breaks = require("./../db/models/breaks.js") //
+const Breaks = require("./../db/models/breaks.js")
+const {mongo} = require("mongoose"); //
 
 exports.index = async (req, res) => {
     // #swagger.tags = ['Breaks']
@@ -29,8 +30,10 @@ exports.id = async (req, res, next) => {
         description: 'User successfully obtained.',
         schema: { $ref: '#/definitions/User' }
 } */
-
-    const nyBreak = await Breaks.findById(req.params._id);
+    const conditions = {_id: new mongo.ObjectId(req.params._id)};
+    const nyBreak = await Breaks.findOne(conditions)
+        .lean()
+        .then(doc => JSON.parse(JSON.stringify(doc)));
     if(nyBreak) {
         res.send(nyBreak);
     } else {

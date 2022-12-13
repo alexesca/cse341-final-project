@@ -98,4 +98,16 @@ describe('GET /breaks', function () {
             });
 
     });
+    it('should update break', function (done) {
+        const _doc = null;
+        mockingoose(Break).toReturn(_doc, 'findByIdAndDelete');
+        request(app)
+            .delete('/breaks/6397f6ec5479670d43af3969')
+            .expect(200)
+            .end(function(err, res) {
+                if (err) return done(err);
+                return done();
+            });
+
+    });
 })

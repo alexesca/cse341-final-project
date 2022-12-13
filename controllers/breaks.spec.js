@@ -149,7 +149,6 @@ function findBreakSpecs() {
                 sendStatus: u => myBreak = u
             }
             const _doc = null;
-
             mockingoose(Break).toReturn(_doc, 'findByIdAndDelete');
 
             Controller.delete(req, res)

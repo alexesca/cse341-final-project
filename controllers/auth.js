@@ -23,11 +23,11 @@ exports.create = async (req, res) => {
             "grant_type":"client_credentials"
     }
     };
-
-    request(options, function (error, response, body) {
-        if (error) throw new Error(error);
-
-        console.log(body);
+    return new Promise((resolve, reject) => {
+        request(options, function (error, response, body) {
+            if (error) reject(error);
+            resolve(body)
+        });
     });
 };
 

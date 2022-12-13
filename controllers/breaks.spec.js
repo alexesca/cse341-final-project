@@ -74,7 +74,7 @@ function findBreakSpecs() {
         }
     });
 
-    it.only('should create break',  (done) => {
+    it('should create break',  (done) => {
         try {
             let myBreak;
             const body = {
@@ -99,6 +99,70 @@ function findBreakSpecs() {
             Controller.create(req, res)
                 .then(() => {
                     expect(myBreak.toString()).toBe(_doc._id);
+                    done()
+                })
+                .catch(e => {
+                    throw e
+                });
+        } catch (e) {
+            done.fail(e);
+        }
+    });
+
+    it.only('should update break',  (done) => {
+        try {
+            let myBreak;
+            const body = {
+                "_id": "6397f6ec5479670d43af3969",
+                name: "Go for a walk",
+                description: "Go for a walk to air your brain and exercise.",
+                _userId: "61a921f6028954d4f0319e72",
+                createdAt: "2019-02-25T20:52:58.000Z",
+                dueDate: "2019-02-25T21:52:58.000Z"
+            };
+            const req = {body, params: {"_id": "6397f6ec5479670d43af3969"}};
+            const res = {
+                sendStatus: u => myBreak = u
+            }
+            const _doc = body;
+
+            mockingoose(Break).toReturn(_doc, 'findByIdAndUpdate');
+
+            Controller.update(req, res)
+                .then(() => {
+                    expect(myBreak).toBe(204);
+                    done()
+                })
+                .catch(e => {
+                    throw e
+                });
+        } catch (e) {
+            done.fail(e);
+        }
+    });
+
+    it('should delete break',  (done) => {
+        try {
+            let myBreak;
+            const body = {
+                "_id": "6397f6ec5479670d43af3969",
+                name: "Go for a walk",
+                description: "Go for a walk to air your brain and exercise.",
+                _userId: "61a921f6028954d4f0319e72",
+                createdAt: "2019-02-25T20:52:58.000Z",
+                dueDate: "2019-02-25T21:52:58.000Z"
+            };
+            const req = {body, params: {"_id": "6397f6ec5479670d43af3969"}};
+            const res = {
+                sendStatus: u => u
+            }
+            const _doc = body;
+
+            mockingoose(Break).toReturn(_doc, 'findByIdAndUpdate');
+
+            Controller.update(req, res)
+                .then(() => {
+                    expect(myBreak).toBe(_doc._id);
                     done()
                 })
                 .catch(e => {

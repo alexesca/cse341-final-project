@@ -5,20 +5,19 @@ const doc = {
         title: 'My Developer Productivity API',
         description: 'This is the best productivity app.',
     },
-    // host: "localhost:3000",
-    host: "cse341-final-project-tug6.onrender.com",
+    host: "localhost:3000",
+    // host: "cse341-final-project-tug6.onrender.com",
     swaggerUIPath: '/api-docs',
-    // schemes: ['http'],
-    schemes: ['https'],
+    schemes: ['http'],
+    // schemes: ['https'],
     components: {
         securitySchemes: {
-            Authorization: {
-                type: "http",
-                scheme: "bearer",
-                bearerFormat: "JWT",
-                value: "Bearer <JWT token here>"
+            bearerAuth: {
+                type: 'http',
+                scheme: 'bearer',
+                bearerFormat: 'JWT'
             }
-        }
+}
     },
     definitions: {
         Users: [{

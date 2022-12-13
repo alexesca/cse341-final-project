@@ -5,10 +5,10 @@
     "description": "This is the best productivity app.",
     "version": "1.0.0"
   },
-  "host": "cse341-final-project-tug6.onrender.com",
+  "host": "localhost:3000",
   "basePath": "/",
   "schemes": [
-    "https"
+    "http"
   ],
   "paths": {
     "/": {
@@ -39,6 +39,9 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "OK"
+          },
           "201": {
             "description": "User successfully  .",
             "schema": {
@@ -797,11 +800,10 @@
   },
   "components": {
     "securitySchemes": {
-      "Authorization": {
+      "bearerAuth": {
         "type": "http",
         "scheme": "bearer",
-        "bearerFormat": "JWT",
-        "value": "Bearer <JWT token here>"
+        "bearerFormat": "JWT"
       }
     }
   },

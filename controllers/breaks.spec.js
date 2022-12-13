@@ -141,7 +141,7 @@ function findBreakSpecs() {
         }
     });
 
-    it.only('should delete break',  (done) => {
+    it('should delete break',  (done) => {
         try {
             let myBreak;
             const req = {params: {"_id": "6397f6ec5479670d43af3969"}};

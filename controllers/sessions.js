@@ -1,4 +1,4 @@
-const Sessions = require("./../db/models/sessions.js") //
+const Sessions = require("./../db/models/sessions.js")
 
 exports.index = async (req, res) => {
     // #swagger.tags = ['Sessions']
@@ -9,6 +9,8 @@ exports.index = async (req, res) => {
         schema: { $ref: '#/definitions/Sessions' }
 } */
     const sessions = await Sessions.find()
+        .lean()
+        .then(doc => JSON.parse(JSON.stringify(doc)))
     res.send(sessions)
 };
 
@@ -28,7 +30,10 @@ exports.id = async (req, res, next) => {
         schema: { $ref: '#/definitions/User' }
 } */
 
-    const session = await Sessions.findById(req.params._id);
+    const conditions  = {_id: req.params._id};
+    const session = await Sessions.findOne(conditions)
+        .lean()
+        .then(doc => JSON.parse(JSON.stringify(doc)));
     if(session) {
         res.send(session);
     } else {
@@ -49,7 +54,8 @@ exports.create = async (req, res) => {
     description: 'User successfully created.',
     schema: "Newly created User ID"
 } */
-    const session = await Sessions.create(req.body);
+    const _session = new Sessions(req.body);
+    const session = await _session.save();
     res.status(201).send(session._id);
 };
 

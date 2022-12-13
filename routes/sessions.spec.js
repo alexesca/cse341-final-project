@@ -104,7 +104,7 @@ describe('GET /sessions', function () {
             });
 
     });
-    it('should update session', function (done) {
+    it('should delete session', function (done) {
         const _doc = null;
         mockingoose(Session).toReturn(_doc, 'findByIdAndDelete');
         request(app)

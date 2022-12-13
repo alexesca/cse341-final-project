@@ -76,4 +76,26 @@ describe('GET /breaks', function () {
             });
 
     });
+    it('should update break', function (done) {
+        const body = {
+            "_id": "6397f6ec5479670d43af3969",
+            name: "Go for a walk",
+            description: "Go for a walk to air your brain and exercise.",
+            _userId: "61a921f6028954d4f0319e72",
+            createdAt: "2019-02-25T20:52:58.000Z",
+            dueDate: "2019-02-25T21:52:58.000Z"
+        };
+        const _doc = body;
+
+        mockingoose(Break).toReturn(_doc, 'findByIdAndUpdate');
+        request(app)
+            .put('/breaks/6397f6ec5479670d43af3969')
+            .send(body)
+            .expect(204)
+            .end(function(err, res) {
+                if (err) return done(err);
+                return done();
+            });
+
+    });
 })

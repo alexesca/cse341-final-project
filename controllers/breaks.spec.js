@@ -40,7 +40,7 @@ function findBreakSpecs() {
         }
     });
 
-    it.only('should return the doc with findById',  (done) => {
+    it('should return the doc with findById',  (done) => {
         try {
             let myBreak;
             const req = {params: {_id: "6397f6ec5479670d43af3969"}};
@@ -64,6 +64,41 @@ function findBreakSpecs() {
             Controller.id(req, res, next)
                 .then(() => {
                     expect(myBreak).toEqual(_doc);
+                    done()
+                })
+                .catch(e => {
+                    throw e
+                });
+        } catch (e) {
+            done.fail(e);
+        }
+    });
+
+    it.only('should create break',  (done) => {
+        try {
+            let myBreak;
+            const body = {
+                "_id": "6397f6ec5479670d43af3969",
+                name: "Go for a walk",
+                description: "Go for a walk to air your brain and exercise.",
+                _userId: "61a921f6028954d4f0319e72",
+                createdAt: "2019-02-25T20:52:58.000Z",
+                dueDate: "2019-02-25T21:52:58.000Z"
+            };
+            const req = {body};
+            const res = {
+                status: function (code) {
+                    return this
+                },
+                send: u => myBreak = u
+            }
+            const _doc = body;
+
+            mockingoose(Break).toReturn(_doc, 'save');
+
+            Controller.create(req, res)
+                .then(() => {
+                    expect(myBreak.toString()).toBe(_doc._id);
                     done()
                 })
                 .catch(e => {

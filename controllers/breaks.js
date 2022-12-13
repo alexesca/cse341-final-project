@@ -54,7 +54,8 @@ exports.create = async (req, res) => {
     description: 'User successfully created.',
     schema: "Newly created User ID"
 } */
-    const nyBreak = await Breaks.create(req.body);
+    const _break = new Breaks(req.body);
+    const nyBreak = await _break.save()
     res.status(201).send(nyBreak._id);
 };
 

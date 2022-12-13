@@ -1,9 +1,9 @@
-var request = require("request");
+var request = require("axios");
 
 exports.create = async (req, res) => {
-    // #swagger.tags = ['Breaks']
-    // #swagger.summary = 'Create nyBreak and return ID. All fields are required.'
-    // #swagger.description = 'This endpoint creates a nyBreak and returns the newly created nyBreak ID.'
+    // #swagger.tags = ['Auth']
+    // #swagger.summary = 'Get user token with user's credentials'
+    // #swagger.description = 'This endpoint gets an access token using the user's credentials.'
     /*  #swagger.parameters['Breaks'] = {
                     in: 'body',
                     description: 'Model of the new nyBreak.',
@@ -16,6 +16,7 @@ exports.create = async (req, res) => {
     var options = { method: 'POST',
         url: process.env.AUTH_URL,
         headers: { 'content-type': 'application/json' },
+        json: true,
         body: {
         "client_id": process.env.AUTH_CLIENT_ID,
             "client_secret": process.env.AUTH_CLIENT_SECRET,
@@ -25,8 +26,8 @@ exports.create = async (req, res) => {
     };
     return new Promise((resolve, reject) => {
         request(options, function (error, response, body) {
-            if (error) reject(error);
-            resolve(body)
+            if (error)  reject(error);
+            else resolve(body)
         });
     });
 };

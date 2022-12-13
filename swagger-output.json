@@ -21,6 +21,37 @@
         "responses": {}
       }
     },
+    "/auth/": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Get user token with user",
+        "description": "This endpoint gets an access token using the user",
+        "parameters": [
+          {
+            "name": "Breaks",
+            "in": "body",
+            "description": "Model of the new nyBreak.",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "User successfully  .",
+            "schema": {
+              "type": "string",
+              "example": "Newly created User ID",
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      }
+    },
     "/users/": {
       "get": {
         "tags": [
@@ -761,6 +792,16 @@
           "type": "string",
           "example": "Completed"
         }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "Authorization": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "value": "Bearer <JWT token here>"
       }
     }
   },

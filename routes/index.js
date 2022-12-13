@@ -3,6 +3,7 @@ const router = express.Router();
 
 
 /* GET home page. */
+router.use("/auth", require("./auth.js"));
 router.use("/users", require("./users.js"));
 router.use("/tasks", require("./tasks.js"));
 router.use("/breaks", require("./breaks.js"));

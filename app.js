@@ -24,7 +24,10 @@ var jwtCheck = expressjwt({
   audience: 'http://localhost:3000/api-docs/',
   issuer: 'https://byui-cse341-final-project.us.auth0.com/',
   algorithms: ['RS256']
+}).unless({
+  custom: jwtCustomFunction
 });
+
 
 app.use(jwtCheck);
 
@@ -56,3 +59,57 @@ function errorHandler (err, req, res, next) {
 app.use(errorHandler);
 
 module.exports = app;
+
+
+
+
+
+function jwtCustomFunction (req) {
+  // Check for /api/* calls.
+  // Returns false on any requests that have /api/* at the beginning
+  const url = req.originalUrl;
+  const method = req.method;
+  const isFullPathWhitelisted = isFullPathUrlWhitelisted(
+      url,
+      method
+  )
+  if(isFullPathWhitelisted) return true;
+
+  if (
+      /^\/api\//i.test(url)
+  ) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+
+function isFullPathUrlWhitelisted(
+    url,
+    method
+) {
+  const whitelist = [
+    {
+      path: '/api-docs',
+      method: 'GET'
+    },
+    {
+      path: '/auth',
+      method: 'POST'
+    }
+  ]
+
+  for (let i = 0; i < whitelist.length; i++) {
+    if(
+        (url === whitelist[i].path
+            || (whitelist[i].path instanceof RegExp && whitelist[i].path.test(url)))
+        && method === whitelist[i].method
+    ) {
+      return true;
+    }
+  }
+
+  return false;
+
+}

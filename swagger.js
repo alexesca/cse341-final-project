@@ -10,6 +10,16 @@ const doc = {
     swaggerUIPath: '/api-docs',
     // schemes: ['http'],
     schemes: ['https'],
+    components: {
+        securitySchemes: {
+            Authorization: {
+                type: "http",
+                scheme: "bearer",
+                bearerFormat: "JWT",
+                value: "Bearer <JWT token here>"
+            }
+        }
+    },
     definitions: {
         Users: [{
             "email" : "m@gmail.com",

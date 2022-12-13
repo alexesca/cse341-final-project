@@ -5,10 +5,10 @@ const Controller = require('./breaks');
 
 
 describe('Break Model Specs', () => {
-    describe('Find Breaks Specs ', findUsersSpecs);
+    describe('Find Breaks Specs ', findBreakSpecs);
 });
 
-function findUsersSpecs() {
+function findBreakSpecs() {
     it('should return the doc with find',  (done) => {
         try {
             let myBreak;
@@ -17,9 +17,12 @@ function findUsersSpecs() {
                 send: u => myBreak = u
             }
             const _doc = {
-                _id: '507f191e810c19729de860ea',
-                name: 'name',
-                email: 'name@email.com',
+                "_id": "6397f6ec5479670d43af3969",
+                name: "Go for a walk",
+                description: "Go for a walk to air your brain and exercise.",
+                _userId: "61a921f6028954d4f0319e72",
+                createdAt: "2019-02-25T20:52:58.000Z",
+                        dueDate: "2019-02-25T21:52:58.000Z"
             };
 
             mockingoose(Break).toReturn(_doc, 'find');

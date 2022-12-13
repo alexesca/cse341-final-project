@@ -9,6 +9,8 @@ exports.index = async (req, res) => {
         schema: { $ref: '#/definitions/Breaks' }
 } */
     const breaks = await Breaks.find()
+        .lean()
+        .then(doc => JSON.parse(JSON.stringify(doc)))
     res.send(breaks)
 };
 

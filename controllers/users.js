@@ -34,7 +34,9 @@ exports.id = async (req, res, next) => {
         schema: { $ref: '#/definitions/User' }
 } */
 
-    const script = await Users.findById(req.params._id);
+    const script = await Users.findById(req.params._id)
+        .lean()
+        .then(doc => JSON.parse(JSON.stringify(doc)));
     if(script) {
         res.send(script);
     } else {
@@ -55,7 +57,8 @@ exports.create = async (req, res) => {
     description: 'User successfully created.',
     schema: "Newly created User ID"
 } */
-    const user = await Users.create(req.body);
+    const _user = new Users(req.body);
+    const user = await _user.save();
     res.status(201).send(user._id);
 };
 

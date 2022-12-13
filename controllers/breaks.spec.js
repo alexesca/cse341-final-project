@@ -109,7 +109,7 @@ function findBreakSpecs() {
         }
     });
 
-    it.only('should update break',  (done) => {
+    it('should update break',  (done) => {
         try {
             let myBreak;
             const body = {
@@ -141,28 +141,20 @@ function findBreakSpecs() {
         }
     });
 
-    it('should delete break',  (done) => {
+    it.only('should delete break',  (done) => {
         try {
             let myBreak;
-            const body = {
-                "_id": "6397f6ec5479670d43af3969",
-                name: "Go for a walk",
-                description: "Go for a walk to air your brain and exercise.",
-                _userId: "61a921f6028954d4f0319e72",
-                createdAt: "2019-02-25T20:52:58.000Z",
-                dueDate: "2019-02-25T21:52:58.000Z"
-            };
-            const req = {body, params: {"_id": "6397f6ec5479670d43af3969"}};
+            const req = {params: {"_id": "6397f6ec5479670d43af3969"}};
             const res = {
-                sendStatus: u => u
+                sendStatus: u => myBreak = u
             }
-            const _doc = body;
+            const _doc = null;
 
-            mockingoose(Break).toReturn(_doc, 'findByIdAndUpdate');
+            mockingoose(Break).toReturn(_doc, 'findByIdAndDelete');
 
-            Controller.update(req, res)
+            Controller.delete(req, res)
                 .then(() => {
-                    expect(myBreak).toBe(_doc._id);
+                    expect(myBreak).toBe(200);
                     done()
                 })
                 .catch(e => {

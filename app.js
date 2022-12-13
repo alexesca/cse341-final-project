@@ -4,13 +4,29 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const swaggerUi = require('swagger-ui-express');
-var cors = require('cors')
+var cors = require('cors');
+var jwt = require('express-jwt');
+var jwks = require('jwks-rsa');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const swaggerDocument = require('./swagger-output.json');
 
 var app = express();
+
+var jwtCheck = jwt({
+  secret: jwks.expressJwtSecret({
+    cache: true,
+    rateLimit: true,
+    jwksRequestsPerMinute: 5,
+    jwksUri: 'https://byui-cse341-final-project.us.auth0.com/.well-known/jwks.json'
+  }),
+  audience: 'http://localhost:3000/api-docs/',
+  issuer: 'https://byui-cse341-final-project.us.auth0.com/',
+  algorithms: ['RS256']
+});
+
+app.use(jwtCheck);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

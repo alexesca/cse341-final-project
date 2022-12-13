@@ -9,6 +9,8 @@ exports.index = async (req, res) => {
         schema: { $ref: '#/definitions/Tasks' }
 } */
     const tasks = await Tasks.find()
+        .lean()
+        .then(doc => JSON.parse(JSON.stringify(doc)))
     res.send(tasks)
 };
 
@@ -28,7 +30,9 @@ exports.id = async (req, res, next) => {
         schema: { $ref: '#/definitions/User' }
 } */
 
-    const task = await Tasks.findById(req.params._id);
+    const task = await Tasks.findById(req.params._id)
+        .lean()
+        .then(doc => JSON.parse(JSON.stringify(doc)));
     if(task) {
         res.send(task);
     } else {
@@ -49,7 +53,8 @@ exports.create = async (req, res) => {
     description: 'User successfully created.',
     schema: "Newly created User ID"
 } */
-    const task = await Tasks.create(req.body);
+    const _task = new Tasks(req.body);
+    const task = await _task.save()
     res.status(201).send(task._id);
 };
 

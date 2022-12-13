@@ -1,4 +1,5 @@
 const express = require("express");
+const { requiresAuth } = require('express-openid-connect');
 const router = express.Router();
 
 const controller = require("../controllers/users.js");
@@ -7,10 +8,10 @@ const validateIdMiddleware = require('./../middlewares/validate-id.middleware.js
 
 
 router
-    .get("/", controller.index)
-    .get("/:_id", validateIdMiddleware.validate, controller.id)
-    .post("/", validateUserMiddleware.validate, controller.create)
-    .put("/:_id", validateIdMiddleware.validate,  validateUserMiddleware.validate, controller.update)
-    .delete("/:_id", validateIdMiddleware.validate, controller.delete);
+    .get("/", requiresAuth(), controller.index)
+    .get("/:_id",requiresAuth(), validateIdMiddleware.validate, controller.id)
+    .post("/",requiresAuth(), validateUserMiddleware.validate, controller.create)
+    .put("/:_id",requiresAuth(), validateIdMiddleware.validate,  validateUserMiddleware.validate, controller.update)
+    .delete("/:_id",requiresAuth(), validateIdMiddleware.validate, controller.delete);
 
 module.exports = router;

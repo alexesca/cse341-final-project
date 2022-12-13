@@ -10,6 +10,12 @@
   "schemes": [
     "http"
   ],
+  "securityDefinitions": {
+    "oauth": {
+      "type": "oauth2",
+      "authorizationUrl": "http://localhost:3000/login"
+    }
+  },
   "paths": {
     "/": {
       "get": {
@@ -18,39 +24,9 @@
         ],
         "description": "",
         "parameters": [],
-        "responses": {}
-      }
-    },
-    "/auth/": {
-      "post": {
-        "tags": [
-          "Auth"
-        ],
-        "summary": "Get user token with user",
-        "description": "This endpoint gets an access token using the user",
-        "parameters": [
-          {
-            "name": "Breaks",
-            "in": "body",
-            "description": "Model of the new nyBreak.",
-            "schema": {
-              "$ref": "#/definitions/User"
-            }
-          }
-        ],
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "201": {
-            "description": "User successfully  .",
-            "schema": {
-              "type": "string",
-              "example": "Newly created User ID",
-              "xml": {
-                "name": "main"
-              }
-            }
           }
         }
       }
@@ -795,15 +771,6 @@
           "type": "string",
           "example": "Completed"
         }
-      }
-    }
-  },
-  "components": {
-    "securitySchemes": {
-      "bearerAuth": {
-        "type": "http",
-        "scheme": "bearer",
-        "bearerFormat": "JWT"
       }
     }
   },

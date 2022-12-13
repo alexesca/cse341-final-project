@@ -36,3 +36,11 @@ exports.create = async (req, res) => {
     }
 };
 
+exports.login = (req, res) => {
+    try {
+        debugger
+        res.oidc.login({ returnTo: '/users' })
+    } catch (e) {
+        debugger
+    }
+}

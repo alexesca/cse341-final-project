@@ -5,8 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const swaggerUi = require('swagger-ui-express');
 var cors = require('cors');
-const { expressjwt } = require("express-jwt")
-var jwks = require('jwks-rsa');
+const { auth } = require('express-openid-connect');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -14,22 +13,18 @@ const swaggerDocument = require('./swagger-output.json');
 
 var app = express();
 
-var jwtCheck = expressjwt({
-  secret: jwks.expressJwtSecret({
-    cache: true,
-    rateLimit: true,
-    jwksRequestsPerMinute: 5,
-    jwksUri: 'https://byui-cse341-final-project.us.auth0.com/.well-known/jwks.json'
-  }),
-  audience: 'http://localhost:3000/api-docs/',
-  issuer: 'https://byui-cse341-final-project.us.auth0.com/',
-  algorithms: ['RS256']
-}).unless({
-  custom: jwtCustomFunction
-});
 
+const config = {
+  authRequired: false,
+  auth0Logout: true,
+  secret: process.env.AUTH_APP_SECRET,
+  clientID: process.env.AUTH_APP_CLIENT_ID,
+  baseURL: 'http://localhost:3000',
+  issuerBaseURL: 'https://byui-cse341-final-project.us.auth0.com',
+};
 
-app.use(jwtCheck);
+// auth router attaches /login, /logout, and /callback routes to the baseURL
+app.use(auth(config));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

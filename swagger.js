@@ -10,14 +10,12 @@ const doc = {
     swaggerUIPath: '/api-docs',
     schemes: ['http'],
     // schemes: ['https'],
-    components: {
-        securitySchemes: {
-            bearerAuth: {
-                type: 'http',
-                scheme: 'bearer',
-                bearerFormat: 'JWT'
-            }
-}
+    "securityDefinitions": {
+        "oauth": {
+            "type": "oauth2",
+            "authorizationUrl": "http://localhost:3000/login",
+
+        }
     },
     definitions: {
         Users: [{

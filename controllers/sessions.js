@@ -5,7 +5,7 @@ exports.index = async (req, res) => {
     // #swagger.summary = 'Find all sessions.'
     // #swagger.description = 'This endpoint returns a list with all the sessions in the database.'
     /* #swagger.responses[200] = {
-        description: 'User successfully obtained.',
+        description: 'Sessions successfully obtained.',
         schema: { $ref: '#/definitions/Sessions' }
 } */
     const sessions = await Sessions.find()
@@ -26,7 +26,7 @@ exports.id = async (req, res, next) => {
 } */
 
     /* #swagger.responses[200] = {
-        description: 'User successfully obtained.',
+        description: 'Session successfully obtained.',
         schema: { $ref: '#/definitions/Session' }
 } */
 
@@ -37,7 +37,7 @@ exports.id = async (req, res, next) => {
     if(session) {
         res.send(session);
     } else {
-        next("User not found.");
+        next("Session not found.");
     }
 };
 
@@ -51,8 +51,8 @@ exports.create = async (req, res) => {
                     schema: { $ref: '#/definitions/Session' }
             } */
     /* #swagger.responses[201] = {
-    description: 'User successfully created.',
-    schema: "Newly created User ID"
+    description: 'Session successfully created.',
+    schema: "Newly created session ID"
 } */
     const _session = new Sessions(req.body);
     const session = await _session.save();

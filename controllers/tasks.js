@@ -5,7 +5,7 @@ exports.index = async (req, res) => {
     // #swagger.summary = 'Find all tasks.'
     // #swagger.description = 'This endpoint returns a list with all the tasks in the database.'
     /* #swagger.responses[200] = {
-        description: 'User successfully obtained.',
+        description: 'Task successfully obtained.',
         schema: { $ref: '#/definitions/Tasks' }
 } */
     const tasks = await Tasks.find()
@@ -26,7 +26,7 @@ exports.id = async (req, res, next) => {
 } */
 
     /* #swagger.responses[200] = {
-        description: 'User successfully obtained.',
+        description: 'Task successfully obtained.',
         schema: { $ref: '#/definitions/Task' }
 } */
 
@@ -36,7 +36,7 @@ exports.id = async (req, res, next) => {
     if(task) {
         res.send(task);
     } else {
-        next("User not found.");
+        next("Task not found.");
     }
 };
 
@@ -50,8 +50,8 @@ exports.create = async (req, res) => {
                     schema: { $ref: '#/definitions/Task' }
             } */
     /* #swagger.responses[201] = {
-    description: 'User successfully created.',
-    schema: "Newly created User ID"
+    description: 'Task successfully created.',
+    schema: "Newly created task ID"
 } */
     const _task = new Tasks(req.body);
     const task = await _task.save()

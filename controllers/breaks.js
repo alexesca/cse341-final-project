@@ -6,7 +6,7 @@ exports.index = async (req, res) => {
     // #swagger.summary = 'Find all breaks.'
     // #swagger.description = 'This endpoint returns a list with all the breaks in the database.'
     /* #swagger.responses[200] = {
-        description: 'User successfully obtained.',
+        description: 'Breaks successfully obtained.ser successfully obtained.',
         schema: { $ref: '#/definitions/Breaks' }
 } */
     const breaks = await Breaks.find()
@@ -27,7 +27,7 @@ exports.id = async (req, res, next) => {
 } */
 
     /* #swagger.responses[200] = {
-        description: 'User successfully obtained.',
+        description: 'Break successfully obtained.',
         schema: { $ref: '#/definitions/Break' }
 } */
     const conditions = {_id: new mongo.ObjectId(req.params._id)};
@@ -37,7 +37,7 @@ exports.id = async (req, res, next) => {
     if(nyBreak) {
         res.send(nyBreak);
     } else {
-        next("User not found.");
+        next("Break not found.");
     }
 };
 
@@ -51,8 +51,8 @@ exports.create = async (req, res) => {
                     schema: { $ref: '#/definitions/Break' }
             } */
     /* #swagger.responses[201] = {
-    description: 'User successfully created.',
-    schema: "Newly created User ID"
+    description: 'Break successfully created.',
+    schema: "Newly created break ID"
 } */
     const _break = new Breaks(req.body);
     const nyBreak = await _break.save()

@@ -52,13 +52,13 @@
         "tags": [
           "Users"
         ],
-        "summary": "Create script and return ID. All fields are required.",
-        "description": "This endpoint   a script and returns the newly   script ID.",
+        "summary": "Create user and return ID. All fields are required.",
+        "description": "This endpoint   a user and returns the newly   user ID.",
         "parameters": [
           {
             "name": "Users",
             "in": "body",
-            "description": "Model of the new script.",
+            "description": "Model of the new user.",
             "schema": {
               "$ref": "#/definitions/User"
             }
@@ -83,15 +83,15 @@
         "tags": [
           "Users"
         ],
-        "summary": "Find script by ID.",
-        "description": "This endpoint returns a script found with the provided ID",
+        "summary": "Find user by ID.",
+        "description": "This endpoint returns a user found with the provided ID",
         "parameters": [
           {
             "name": "_id",
             "in": "path",
             "required": true,
             "type": "string",
-            "description": "Id of the desired script.",
+            "description": "Id of the desired user.",
             "schema": {
               "type": "string",
               "example": "636c889a2a02ef8e6e9f50e6"
@@ -111,8 +111,8 @@
         "tags": [
           "Users"
         ],
-        "summary": "Update script.",
-        "description": "This endpoint   a script. All fields are required for a successful update.",
+        "summary": "Update user.",
+        "description": "This endpoint   a user. All fields are required for a successful update.",
         "parameters": [
           {
             "name": "_id",
@@ -123,7 +123,7 @@
           {
             "name": "Users",
             "in": "body",
-            "description": "Model of the new script.",
+            "description": "Model of the new user.",
             "schema": {
               "$ref": "#/definitions/User"
             }
@@ -139,8 +139,8 @@
         "tags": [
           "Users"
         ],
-        "summary": "Delete script.",
-        "description": "This endpoint   a script if a valid ID is passed.",
+        "summary": "Delete user.",
+        "description": "This endpoint   a user if a valid ID is passed.",
         "parameters": [
           {
             "name": "_id",
@@ -166,7 +166,7 @@
         "parameters": [],
         "responses": {
           "200": {
-            "description": "User successfully obtained.",
+            "description": "Task successfully obtained.",
             "schema": {
               "$ref": "#/definitions/Tasks"
             }
@@ -185,16 +185,16 @@
             "in": "body",
             "description": "Model of the new task.",
             "schema": {
-              "$ref": "#/definitions/User"
+              "$ref": "#/definitions/Task"
             }
           }
         ],
         "responses": {
           "201": {
-            "description": "User successfully  .",
+            "description": "Task successfully  .",
             "schema": {
               "type": "string",
-              "example": "Newly created User ID",
+              "example": "Newly created task ID",
               "xml": {
                 "name": "main"
               }
@@ -225,9 +225,9 @@
         ],
         "responses": {
           "200": {
-            "description": "User successfully obtained.",
+            "description": "Task successfully obtained.",
             "schema": {
-              "$ref": "#/definitions/User"
+              "$ref": "#/definitions/Task"
             }
           }
         }
@@ -250,7 +250,7 @@
             "in": "body",
             "description": "Model of the new task.",
             "schema": {
-              "$ref": "#/definitions/User"
+              "$ref": "#/definitions/Task"
             }
           }
         ],
@@ -291,7 +291,7 @@
         "parameters": [],
         "responses": {
           "200": {
-            "description": "User successfully obtained.",
+            "description": "Breaks successfully obtained.ser successfully obtained.",
             "schema": {
               "$ref": "#/definitions/Breaks"
             }
@@ -302,24 +302,24 @@
         "tags": [
           "Breaks"
         ],
-        "summary": "Create nyBreak and return ID. All fields are required.",
-        "description": "This endpoint   a nyBreak and returns the newly   nyBreak ID.",
+        "summary": "Create break and return ID. All fields are required.",
+        "description": "This endpoint   a break and returns the newly   break ID.",
         "parameters": [
           {
             "name": "Breaks",
             "in": "body",
-            "description": "Model of the new nyBreak.",
+            "description": "Model of the new break.",
             "schema": {
-              "$ref": "#/definitions/User"
+              "$ref": "#/definitions/Break"
             }
           }
         ],
         "responses": {
           "201": {
-            "description": "User successfully  .",
+            "description": "Break successfully  .",
             "schema": {
               "type": "string",
-              "example": "Newly created User ID",
+              "example": "Newly created break ID",
               "xml": {
                 "name": "main"
               }
@@ -333,15 +333,15 @@
         "tags": [
           "Breaks"
         ],
-        "summary": "Find nyBreak by ID.",
-        "description": "This endpoint returns a nyBreak found with the provided ID",
+        "summary": "Find break by ID.",
+        "description": "This endpoint returns a break found with the provided ID",
         "parameters": [
           {
             "name": "_id",
             "in": "path",
             "required": true,
             "type": "string",
-            "description": "Id of the desired nyBreak.",
+            "description": "Id of the desired break.",
             "schema": {
               "type": "string",
               "example": "636c889a2a02ef8e6e9f50e6"
@@ -350,9 +350,9 @@
         ],
         "responses": {
           "200": {
-            "description": "User successfully obtained.",
+            "description": "Break successfully obtained.",
             "schema": {
-              "$ref": "#/definitions/User"
+              "$ref": "#/definitions/Break"
             }
           }
         }
@@ -361,8 +361,8 @@
         "tags": [
           "Breaks"
         ],
-        "summary": "Update nyBreak.",
-        "description": "This endpoint   a nyBreak. All fields are required for a successful update.",
+        "summary": "Update break.",
+        "description": "This endpoint   a break. All fields are required for a successful update.",
         "parameters": [
           {
             "name": "_id",
@@ -373,9 +373,9 @@
           {
             "name": "Breaks",
             "in": "body",
-            "description": "Model of the new nyBreak.",
+            "description": "Model of the new break.",
             "schema": {
-              "$ref": "#/definitions/User"
+              "$ref": "#/definitions/Break"
             }
           }
         ],
@@ -389,8 +389,8 @@
         "tags": [
           "Breaks"
         ],
-        "summary": "Delete nyBreak.",
-        "description": "This endpoint   a nyBreak if a valid ID is passed.",
+        "summary": "Delete break.",
+        "description": "This endpoint   a break if a valid ID is passed.",
         "parameters": [
           {
             "name": "_id",
@@ -416,7 +416,7 @@
         "parameters": [],
         "responses": {
           "200": {
-            "description": "User successfully obtained.",
+            "description": "Sessions successfully obtained.",
             "schema": {
               "$ref": "#/definitions/Sessions"
             }
@@ -435,16 +435,16 @@
             "in": "body",
             "description": "Model of the new session.",
             "schema": {
-              "$ref": "#/definitions/User"
+              "$ref": "#/definitions/Session"
             }
           }
         ],
         "responses": {
           "201": {
-            "description": "User successfully  .",
+            "description": "Session successfully  .",
             "schema": {
               "type": "string",
-              "example": "Newly created User ID",
+              "example": "Newly created session ID",
               "xml": {
                 "name": "main"
               }
@@ -475,9 +475,9 @@
         ],
         "responses": {
           "200": {
-            "description": "User successfully obtained.",
+            "description": "Session successfully obtained.",
             "schema": {
-              "$ref": "#/definitions/User"
+              "$ref": "#/definitions/Session"
             }
           }
         }
@@ -500,7 +500,7 @@
             "in": "body",
             "description": "Model of the new session.",
             "schema": {
-              "$ref": "#/definitions/User"
+              "$ref": "#/definitions/Session"
             }
           }
         ],

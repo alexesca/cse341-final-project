@@ -20,10 +20,10 @@ exports.index = async (req, res) => {
 
 exports.id = async (req, res, next) => {
     // #swagger.tags = ['Users']
-    // #swagger.summary = 'Find script by ID.'
-    // #swagger.description = 'This endpoint returns a script found with the provided ID'
+    // #swagger.summary = 'Find user by ID.'
+    // #swagger.description = 'This endpoint returns a user found with the provided ID'
     /* #swagger.parameters['_id'] = {
-        description: "Id of the desired script.",
+        description: "Id of the desired user.",
         required: true,
         type: "string",
         schema: "636c889a2a02ef8e6e9f50e6"
@@ -34,11 +34,11 @@ exports.id = async (req, res, next) => {
         schema: { $ref: '#/definitions/User' }
 } */
 
-    const script = await Users.findById(req.params._id)
+    const user = await Users.findById(req.params._id)
         .lean()
         .then(doc => JSON.parse(JSON.stringify(doc)));
-    if(script) {
-        res.send(script);
+    if(user) {
+        res.send(user);
     } else {
         next("User not found.");
     }
@@ -46,11 +46,11 @@ exports.id = async (req, res, next) => {
 
 exports.create = async (req, res) => {
     // #swagger.tags = ['Users']
-    // #swagger.summary = 'Create script and return ID. All fields are required.'
-    // #swagger.description = 'This endpoint creates a script and returns the newly created script ID.'
+    // #swagger.summary = 'Create user and return ID. All fields are required.'
+    // #swagger.description = 'This endpoint creates a user and returns the newly created user ID.'
     /*  #swagger.parameters['Users'] = {
                     in: 'body',
-                    description: 'Model of the new script.',
+                    description: 'Model of the new user.',
                     schema: { $ref: '#/definitions/User' }
             } */
     /* #swagger.responses[201] = {
@@ -64,11 +64,11 @@ exports.create = async (req, res) => {
 
 exports.update = async (req, res) => {
     // #swagger.tags = ['Users']
-    // #swagger.summary = 'Update script.'
-    // #swagger.description = 'This endpoint updates a script. All fields are required for a successful update.'
+    // #swagger.summary = 'Update user.'
+    // #swagger.description = 'This endpoint updates a user. All fields are required for a successful update.'
     /*  #swagger.parameters['Users'] = {
                 in: 'body',
-                description: 'Model of the new script.',
+                description: 'Model of the new user.',
                 schema: { $ref: '#/definitions/User' }
         } */
     const _id = req.params._id;
@@ -78,8 +78,8 @@ exports.update = async (req, res) => {
 
 exports.delete = async (req, res) => {
     // #swagger.tags = ['Users']
-    // #swagger.summary = 'Delete script.'
-    // #swagger.description = 'This endpoint deletes a script if a valid ID is passed.'
+    // #swagger.summary = 'Delete user.'
+    // #swagger.description = 'This endpoint deletes a user if a valid ID is passed.'
     const _id = req.params._id;
     await Users.findByIdAndDelete(_id);
     res.sendStatus(200)

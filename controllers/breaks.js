@@ -17,10 +17,10 @@ exports.index = async (req, res) => {
 
 exports.id = async (req, res, next) => {
     // #swagger.tags = ['Breaks']
-    // #swagger.summary = 'Find nyBreak by ID.'
-    // #swagger.description = 'This endpoint returns a nyBreak found with the provided ID'
+    // #swagger.summary = 'Find break by ID.'
+    // #swagger.description = 'This endpoint returns a break found with the provided ID'
     /* #swagger.parameters['_id'] = {
-        description: "Id of the desired nyBreak.",
+        description: "Id of the desired break.",
         required: true,
         type: "string",
         schema: "636c889a2a02ef8e6e9f50e6"
@@ -28,7 +28,7 @@ exports.id = async (req, res, next) => {
 
     /* #swagger.responses[200] = {
         description: 'User successfully obtained.',
-        schema: { $ref: '#/definitions/User' }
+        schema: { $ref: '#/definitions/Break' }
 } */
     const conditions = {_id: new mongo.ObjectId(req.params._id)};
     const nyBreak = await Breaks.findOne(conditions)
@@ -43,12 +43,12 @@ exports.id = async (req, res, next) => {
 
 exports.create = async (req, res) => {
     // #swagger.tags = ['Breaks']
-    // #swagger.summary = 'Create nyBreak and return ID. All fields are required.'
-    // #swagger.description = 'This endpoint creates a nyBreak and returns the newly created nyBreak ID.'
+    // #swagger.summary = 'Create break and return ID. All fields are required.'
+    // #swagger.description = 'This endpoint creates a break and returns the newly created break ID.'
     /*  #swagger.parameters['Breaks'] = {
                     in: 'body',
-                    description: 'Model of the new nyBreak.',
-                    schema: { $ref: '#/definitions/User' }
+                    description: 'Model of the new break.',
+                    schema: { $ref: '#/definitions/Break' }
             } */
     /* #swagger.responses[201] = {
     description: 'User successfully created.',
@@ -61,12 +61,12 @@ exports.create = async (req, res) => {
 
 exports.update = async (req, res) => {
     // #swagger.tags = ['Breaks']
-    // #swagger.summary = 'Update nyBreak.'
-    // #swagger.description = 'This endpoint updates a nyBreak. All fields are required for a successful update.'
+    // #swagger.summary = 'Update break.'
+    // #swagger.description = 'This endpoint updates a break. All fields are required for a successful update.'
     /*  #swagger.parameters['Breaks'] = {
                 in: 'body',
-                description: 'Model of the new nyBreak.',
-                schema: { $ref: '#/definitions/User' }
+                description: 'Model of the new break.',
+                schema: { $ref: '#/definitions/Break' }
         } */
     const _id = req.params._id;
     await Breaks.findByIdAndUpdate(_id, req.body);
@@ -75,8 +75,8 @@ exports.update = async (req, res) => {
 
 exports.delete = async (req, res) => {
     // #swagger.tags = ['Breaks']
-    // #swagger.summary = 'Delete nyBreak.'
-    // #swagger.description = 'This endpoint deletes a nyBreak if a valid ID is passed.'
+    // #swagger.summary = 'Delete break.'
+    // #swagger.description = 'This endpoint deletes a break if a valid ID is passed.'
     const _id = req.params._id;
     await Breaks.findByIdAndDelete(_id);
     res.sendStatus(200)

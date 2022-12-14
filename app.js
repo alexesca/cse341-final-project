@@ -19,7 +19,7 @@ const config = {
   auth0Logout: true,
   secret: process.env.AUTH_APP_SECRET,
   clientID: process.env.AUTH_APP_CLIENT_ID,
-  baseURL: 'http://localhost:3000',
+  baseURL: process.env.BASE_URL,
   issuerBaseURL: 'https://byui-cse341-final-project.us.auth0.com',
   errorOnRequiredAuth: true
 };

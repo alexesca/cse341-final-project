@@ -8,10 +8,10 @@ const validateIdMiddleware = require('./../middlewares/validate-id.middleware.js
 
 
 router
-    .get("/",requiresAuth(), controller.index)
-    .get("/:_id",requiresAuth(), validateIdMiddleware.validate, controller.id)
-    .post("/",requiresAuth(), validateTaskMiddleware.validate, controller.create)
-    .put("/:_id",requiresAuth(), validateIdMiddleware.validate,  validateTaskMiddleware.validate, controller.update)
-    .delete("/:_id",requiresAuth(), validateIdMiddleware.validate, controller.delete);
+    .get("/", controller.index)
+    .get("/:_id", validateIdMiddleware.validate, controller.id)
+    .post("/", validateTaskMiddleware.validate, controller.create)
+    .put("/:_id", validateIdMiddleware.validate,  validateTaskMiddleware.validate, controller.update)
+    .delete("/:_id", validateIdMiddleware.validate, controller.delete);
 
 module.exports = router;

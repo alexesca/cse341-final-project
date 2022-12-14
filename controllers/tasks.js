@@ -27,7 +27,7 @@ exports.id = async (req, res, next) => {
 
     /* #swagger.responses[200] = {
         description: 'User successfully obtained.',
-        schema: { $ref: '#/definitions/User' }
+        schema: { $ref: '#/definitions/Task' }
 } */
 
     const task = await Tasks.findById(req.params._id)
@@ -47,7 +47,7 @@ exports.create = async (req, res) => {
     /*  #swagger.parameters['Tasks'] = {
                     in: 'body',
                     description: 'Model of the new task.',
-                    schema: { $ref: '#/definitions/User' }
+                    schema: { $ref: '#/definitions/Task' }
             } */
     /* #swagger.responses[201] = {
     description: 'User successfully created.',
@@ -65,7 +65,7 @@ exports.update = async (req, res) => {
     /*  #swagger.parameters['Tasks'] = {
                 in: 'body',
                 description: 'Model of the new task.',
-                schema: { $ref: '#/definitions/User' }
+                schema: { $ref: '#/definitions/Task' }
         } */
     const _id = req.params._id;
     await Tasks.findByIdAndUpdate(_id, req.body);

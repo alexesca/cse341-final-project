@@ -27,7 +27,7 @@ exports.id = async (req, res, next) => {
 
     /* #swagger.responses[200] = {
         description: 'User successfully obtained.',
-        schema: { $ref: '#/definitions/User' }
+        schema: { $ref: '#/definitions/Session' }
 } */
 
     const conditions  = {_id: req.params._id};
@@ -48,7 +48,7 @@ exports.create = async (req, res) => {
     /*  #swagger.parameters['Sessions'] = {
                     in: 'body',
                     description: 'Model of the new session.',
-                    schema: { $ref: '#/definitions/User' }
+                    schema: { $ref: '#/definitions/Session' }
             } */
     /* #swagger.responses[201] = {
     description: 'User successfully created.',
@@ -66,7 +66,7 @@ exports.update = async (req, res) => {
     /*  #swagger.parameters['Sessions'] = {
                 in: 'body',
                 description: 'Model of the new session.',
-                schema: { $ref: '#/definitions/User' }
+                schema: { $ref: '#/definitions/Session' }
         } */
     const _id = req.params._id;
     await Sessions.findByIdAndUpdate(_id, req.body);

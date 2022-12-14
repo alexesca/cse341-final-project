@@ -41,16 +41,18 @@ const doc = {
             "dueDate" : "2022-10-16T06:00:00.000+0000",
         },
         Breaks: [{
-            "_userId" : "6375c691fdc424f3222d320g",
-            "name" : "Go for a 5 min walk",
-            "description" : "Go for a 5 min walk to let you back rest.",
-            "createdAt" : "2022-09-16T06:00:00.000+0000",
+            name: "Go for a walk",
+            description: "Go for a walk to air your brain and exercise.",
+            _userId: "61a921f6028954d4f0319e72",
+            createdAt: "2019-02-25T20:52:58.000Z",
+            dueDate: "2019-02-25T21:52:58.000Z"
         }],
         Break: {
-            "_userId" : "6375c691fdc424f3222d320g",
-            "name" : "Go for a 5 min walk",
-            "description" : "Go for a 5 min walk to let you back rest.",
-            "createdAt" : "2022-09-16T06:00:00.000+0000",
+            name: "Go for a walk",
+            description: "Go for a walk to air your brain and exercise.",
+            _userId: "61a921f6028954d4f0319e72",
+            createdAt: "2019-02-25T20:52:58.000Z",
+            dueDate: "2019-02-25T21:52:58.000Z"
         },
         Sessions: [{
             "_userId" : "6375c50e3b3e912a359a2e35",

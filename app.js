@@ -15,13 +15,16 @@ var app = express();
 
 
 const config = {
-  authRequired: false,
+  authRequired: true,
   auth0Logout: true,
   secret: process.env.AUTH_APP_SECRET,
   clientID: process.env.AUTH_APP_CLIENT_ID,
   baseURL: 'http://localhost:3000',
   issuerBaseURL: 'https://byui-cse341-final-project.us.auth0.com',
+  errorOnRequiredAuth: true
 };
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // auth router attaches /login, /logout, and /callback routes to the baseURL
 app.use(auth(config));
@@ -37,7 +40,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

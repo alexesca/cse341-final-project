@@ -22,7 +22,7 @@ function findBreakSpecs() {
                 description: "Go for a walk to air your brain and exercise.",
                 _userId: "61a921f6028954d4f0319e72",
                 createdAt: "2019-02-25T20:52:58.000Z",
-                        dueDate: "2019-02-25T21:52:58.000Z"
+                dueDate: "2019-02-25T21:52:58.000Z"
             };
 
             mockingoose(Break).toReturn(_doc, 'find');

@@ -567,10 +567,6 @@
       "items": {
         "type": "object",
         "properties": {
-          "_id": {
-            "type": "string",
-            "example": "6375c691fdc424f3222d320f"
-          },
           "_userId": {
             "type": "string",
             "example": "6375c691fdc424f3222d320g"
@@ -597,10 +593,6 @@
     "Task": {
       "type": "object",
       "properties": {
-        "_id": {
-          "type": "string",
-          "example": "6375c691fdc424f3222d320f"
-        },
         "_userId": {
           "type": "string",
           "example": "6375c691fdc424f3222d320g"
@@ -628,10 +620,6 @@
       "items": {
         "type": "object",
         "properties": {
-          "_id": {
-            "type": "string",
-            "example": "6375c691fdc424f3222d320f"
-          },
           "_userId": {
             "type": "string",
             "example": "6375c691fdc424f3222d320g"
@@ -654,10 +642,6 @@
     "Break": {
       "type": "object",
       "properties": {
-        "_id": {
-          "type": "string",
-          "example": "6375c691fdc424f3222d320f"
-        },
         "_userId": {
           "type": "string",
           "example": "6375c691fdc424f3222d320g"

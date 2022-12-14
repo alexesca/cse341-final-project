@@ -27,7 +27,6 @@ const doc = {
             "name" : "Miguel",
         },
         Tasks: [{
-            "_id" : "6375c691fdc424f3222d320f",
             "_userId" : "6375c691fdc424f3222d320g",
             "name" : "Style application menu",
             "description" : "Add styles to the application menu to match overall app theme.",
@@ -35,7 +34,6 @@ const doc = {
             "dueDate" : "2022-10-16T06:00:00.000+0000",
         }],
         Task: {
-            "_id" : "6375c691fdc424f3222d320f",
             "_userId" : "6375c691fdc424f3222d320g",
             "name" : "Style application menu",
             "description" : "Add styles to the application menu to match overall app theme.",
@@ -43,14 +41,12 @@ const doc = {
             "dueDate" : "2022-10-16T06:00:00.000+0000",
         },
         Breaks: [{
-            "_id" : "6375c691fdc424f3222d320f",
             "_userId" : "6375c691fdc424f3222d320g",
             "name" : "Go for a 5 min walk",
             "description" : "Go for a 5 min walk to let you back rest.",
             "createdAt" : "2022-09-16T06:00:00.000+0000",
         }],
         Break: {
-            "_id" : "6375c691fdc424f3222d320f",
             "_userId" : "6375c691fdc424f3222d320g",
             "name" : "Go for a 5 min walk",
             "description" : "Go for a 5 min walk to let you back rest.",

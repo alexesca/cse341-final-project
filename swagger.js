@@ -13,7 +13,7 @@ const doc = {
     "securityDefinitions": {
         "oauth": {
             "type": "oauth2",
-            "authorizationUrl": "http://localhost:3000/login",
+            "authorizationUrl": "https://cse341-final-project-tug6.onrender.com/login",
 
         }
     },
